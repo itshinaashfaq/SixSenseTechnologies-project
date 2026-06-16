@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+========================================
+Six Sense Tech Institute
+Final Year Project Supervision Page
+========================================
+Theme Colors:
+- Primary Blue: #0066FF
+- Secondary Orange: #FF6B00
+- Accent Yellow: #f6a860
+- Light Gray: #7e7e7e
+- Dark: #1a1a1a
+========================================
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FYP Supervision - Six Sense</title>
+    <!-- Bootstrap 5.3.2 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6.4.2 for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+    --primary-color: #0066FF;      /* Blue from logo */
+    --secondary-color: #FF6B00;    /* Orange from logo */
+    --accent-color: #f6a860;       /* Yellow from logo */
+    --light-gray: #7e7e7e;         /* Gray from logo */
+    --dark-color: #1a1a1a;         /* Dark for text */
+}
+.navbar {
+    padding: 20px 0;
+    transition: background-color 0.3s ease;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.6), rgba(255, 107, 0, 0.4));
+    background-color:white;
+}
+
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color) !important;
+}
+
+.nav-link {
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.3s;
+    color: var(--primary-color) !important;
+}
+.nav-link:hover {
+    color: var(--secondary-color) !important;
+}
+        .dropdown-menu {
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .dropdown-item {
+            color: var(--dark-color);
+            padding: 12px 20px;
+            transition: all 0.3s;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        /* ========================================
+           Course Hero Section
+           - Blue to orange gradient overlay
+           - Fixed background image
+           ======================================== */
+        .course-hero {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.9), rgba(255, 107, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 150px 0 100px;
+            margin-top: 100px;
+        }
+.sec{
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.9), rgba(255, 107, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+}
+        .course-hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .course-hero .lead {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        /* ========================================
+           Badge Styling
+           - Glassmorphism effect
+           ======================================== */
+        .badge-custom {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin-right: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* ========================================
+           Info Cards
+           - Gradient icons
+           - Hover lift effect
+           ======================================== */
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+            transition: all 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(255, 107, 0, 0.3);
+            border-top-color: var(--secondary-color);
+        }
+
+        .info-card i {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .info-card h4 {
+            color: var(--dark-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* ========================================
+           Service Cards
+           - Hover effects
+           - Gradient icons
+           ======================================== */
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 0, 0.3);
+            border-top-color: var(--secondary-color);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .service-card p {
+            color: #555;
+        }
+
+        /* ========================================
+           Domain Cards
+           - Left border accent
+           - Gradient background
+           ======================================== */
+        .domain-card {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .domain-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(255, 107, 0, 0.2);
+            border-left-color: var(--secondary-color);
+        }
+
+        .domain-card h5 {
+            color: var(--dark-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .domain-card p {
+            color: #555;
+            margin: 0;
+        }
+
+        .domain-card i {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ========================================
+           Process Steps
+           - Numbered steps
+           - Gradient step numbers
+           ======================================== */
+        .process-step {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            padding-left: 90px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .process-step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(255, 107, 0, 0.2);
+        }
+
+        .process-step .step-number {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .process-step h4 {
+            color: var(--dark-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            color: #555;
+            margin: 0;
+        }
+
+        /* Footer */
+.footer {
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.6), rgba(255, 107, 0, 0.4));
+    background-color:white;
+    padding: 60px 0 30px;
+}
+
+.footer h5 {
+    background: var(--secondary-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.footer a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: var(--accent-color);
+}
+
+.footer ul {
+    padding-left: 0;
+}
+
+.footer ul li {
+    margin-bottom: 12px;
+}
+        /* ========================================
+           Pricing Cards
+           - Gradient background
+           - Animated radial glow
+           ======================================== */
+        .pricing-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(246, 168, 96, 0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .pricing-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--accent-color), white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+        }
+
+        .pricing-card h3 {
+            font-weight: bold;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .pricing-card ul li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .pricing-card ul li i {
+            color: var(--accent-color);
+        }
+
+        /* ========================================
+           Testimonial Cards
+           - Student reviews
+           ======================================== */
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(255, 107, 0, 0.3);
+            border-top-color: var(--secondary-color);
+        }
+
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, var(--primary-color), var(--secondary-color)) border-box;
+        }
+
+        .testimonial-card h5 {
+            color: var(--dark-color);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         NAVBAR SECTION
+         ======================================== -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="brand logo.png" alt="Six Sense Technologies Logo" height="50" width="170">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="sixsense1.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                            Courses
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="mobile dev.html">Mobile Development</a></li>
+                            <li><a class="dropdown-item" href="web develop.html">Web Development</a></li>
+                            <li><a class="dropdown-item" href="machine learning.html">Machine Learning</a></li>
+                            <li><a class="dropdown-item" href="fyp.html">FYP Supervision</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+         ======================================== -->
+    <section class="course-hero">
+        <div class="container">
+            <h1><i class="fas fa-graduation-cap me-3"></i> Project Supervision</h1>
+            <p class="lead">Expert Guidance for Your Academic Research & Development Projects</p>
+            <div class="mb-4">
+                <span class="badge-custom"><i class="fas fa-user-tie me-2"></i>One-on-One Mentorship</span>
+                <span class="badge-custom"><i class="fas fa-laptop-code me-2"></i>Full Development Support</span>
+                <span class="badge-custom"><i class="fas fa-trophy me-2"></i>A+ Grade Guarantee</span>
+            </div>
+            <a href="#pricing" class="btn btn-primary-custom"><i class="fas fa-handshake me-2"></i>Get Started</a>
+        </div>
+    </section>
+
+    <!-- ========================================
+         QUICK INFO CARDS
+         ======================================== -->
+    <section style="padding: 100px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="info-card">
+                        <i class="fas fa-users"></i>
+                        <h4>150+ Projects</h4>
+                        <p>Successfully<br>Supervised</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="info-card">
+                        <i class="fas fa-star"></i>
+                        <h4>95% A Grade</h4>
+                        <p>Student Success<br>Rate</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>6-12 Months</h4>
+                        <p>Flexible Project<br>Duration</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="info-card">
+                        <i class="fas fa-headset"></i>
+                        <h4>24/7 Support</h4>
+                        <p>Continuous<br>Guidance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SERVICES OVERVIEW
+         ======================================== -->
+    <section class="bg-light" style="padding: 100px 0;">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">What We Offer</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card text-center">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Topic Selection</h3>
+                        <p>Help you choose innovative and feasible project topics that align with current industry trends.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card text-center">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Proposal Writing</h3>
+                        <p>Complete assistance in writing compelling project proposals with proper methodology.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card text-center">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Development Support</h3>
+                        <p>Full technical support for coding, debugging, and implementing your project.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card text-center">
+                        <i class="fas fa-book-reader"></i>
+                        <h3>Literature Review</h3>
+                        <p>Guidance on conducting thorough literature reviews and identifying research gaps.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card text-center">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Documentation</h3>
+                        <p>Professional help with writing technical documentation and thesis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="service-card text-center">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Presentation Training</h3>
+                        <p>Prepare you for final project defense with effective presentation skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         PROJECT DOMAINS
+         ======================================== -->
+    <section style="padding: 100px 0;" class="sec">
+        <div class="container">
+            <h2 class="section-title">Project Domains We Specialize In</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="domain-card">
+                        <h5><i class="fas fa-mobile-alt me-2"></i>Mobile Application Development</h5>
+                        <p>Android apps, iOS apps, cross-platform solutions, IoT integration.</p>
+                    </div>
+                    <div class="domain-card">
+                        <h5><i class="fas fa-globe me-2"></i>Web Development</h5>
+                        <p>Full-stack applications, e-commerce platforms, CMS, social networks.</p>
+                    </div>
+                    <div class="domain-card">
+                        <h5><i class="fas fa-brain me-2"></i>Artificial Intelligence & ML</h5>
+                        <p>Prediction systems, recommendation engines, chatbots, image recognition.</p>
+                    </div>
+                    <div class="domain-card">
+                        <h5><i class="fas fa-shield-alt me-2"></i>Cybersecurity</h5>
+                        <p>Security tools, vulnerability scanners, encryption systems.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="domain-card">
+                        <h5><i class="fas fa-database me-2"></i>Database Management</h5>
+                        <p>Database design, optimization, data warehousing, big data solutions.</p>
+                    </div>
+                    <div class="domain-card">
+                        <h5><i class="fas fa-network-wired me-2"></i>Computer Networks</h5>
+                        <p>Network simulators, routing protocols, network security, SDN projects.</p>
+                    </div>
+                    <div class="domain-card">
+                        <h5><i class="fas fa-gamepad me-2"></i>Game Development</h5>
+                        <p>2D/3D games, AR/VR applications, multiplayer gaming platforms.</p>
+                    </div>
+                    <div class="domain-card">
+                        <h5><i class="fas fa-microchip me-2"></i>IoT & Embedded Systems</h5>
+                        <p>Smart home systems, health monitoring, automation projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SUPERVISION PROCESS
+         ======================================== -->
+    <section class="bg-light" style="padding: 100px 0;">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Our Supervision Process</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Initial Consultation</h4>
+                        <p>Discuss your ideas, interests, and requirements. We help you refine your concept.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Topic Finalization</h4>
+                        <p>Choose an innovative and feasible project topic with our guidance.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Proposal Development</h4>
+                        <p>Write a comprehensive proposal with clear objectives and methodology.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Literature Review</h4>
+                        <p>Conduct thorough research and identify gaps in existing solutions.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <h4>Design & Development</h4>
+                        <p>Build your project with regular meetings and milestone reviews.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <h4>Testing & Documentation</h4>
+                        <p>Thoroughly test your project and write professional documentation.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">7</div>
+                        <h4>Final Defense Preparation</h4>
+                        <p>Practice your presentation and prepare for Q&A sessions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SUCCESS STORIES
+         ======================================== -->
+    <section style="padding: 100px 0;">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Success Stories</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="testimonial-card text-center">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200" alt="Student">
+                        <h5>Ali Hassan</h5>
+                        <p class="text-muted">COMSATS University</p>
+                        <p>"Got A+ grade in my ML-based disease prediction system. Exceptional guidance!"</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <div class="testimonial-card text-center">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" alt="Student">
+                        <h5>Fatima Khan</h5>
+                        <p class="text-muted">NUST University</p>
+                        <p>"My e-commerce platform was highly appreciated. Best decision ever!"</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card text-center">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200" alt="Student">
+                        <h5>Usman Ahmed</h5>
+                        <p class="text-muted">FAST University</p>
+                        <p>"Completed my Android app successfully. Professional supervision throughout!"</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         PRICING SECTION
+         ======================================== -->
+    <section id="pricing" class="bg-light" style="padding: 100px 0;">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Investment Plans</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card">
+                        <h3>Basic Package</h3>
+                        <div class="price">PKR 30,000</div>
+                        <p>Essential Supervision</p>
+                        <ul class="text-start">
+                            <li><i class="fas fa-check me-2"></i>Topic Selection Guidance</li>
+                            <li><i class="fas fa-check me-2"></i>Proposal Writing Help</li>
+                            <li><i class="fas fa-check me-2"></i>Weekly Meetings</li>
+                            <li><i class="fas fa-check me-2"></i>Documentation Review</li>
+                            <li><i class="fas fa-check me-2"></i>Email Support</li>
+                        </ul>
+                        <a href="sixsense1.html#contact" class="btn btn-outline-custom w-100 mt-4">
+                            <i class="fas fa-rocket me-2"></i>Choose Basic
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card">
+                        <h3>Standard Package</h3>
+                        <div class="price">PKR 50,000</div>
+                        <p>Complete Supervision</p>
+                        <ul class="text-start">
+                            <li><i class="fas fa-check me-2"></i>Everything in Basic</li>
+                            <li><i class="fas fa-check me-2"></i>Full Development Support</li>
+                            <li><i class="fas fa-check me-2"></i>Code Review & Debugging</li>
+                            <li><i class="fas fa-check me-2"></i>Literature Review Help</li>
+                            <li><i class="fas fa-check me-2"></i>Testing Assistance</li>
+                            <li><i class="fas fa-check me-2"></i>Presentation Training</li>
+                        </ul>
+                        <a href="sixsense1.html#contact" class="btn btn-outline-custom w-100 mt-4">
+                            <i class="fas fa-rocket me-2"></i>Choose Standard
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="pricing-card">
+                        <h3>Premium Package</h3>
+                        <div class="price">PKR 80,000</div>
+                        <p>Full Development</p>
+                        <ul class="text-start">
+                            <li><i class="fas fa-check me-2"></i>Everything in Standard</li>
+                            <li><i class="fas fa-check me-2"></i>Complete Code Development</li>
+                            <li><i class="fas fa-check me-2"></i>Professional Documentation</li>
+                            <li><i class="fas fa-check me-2"></i>Research Paper Writing</li>
+                            <li><i class="fas fa-check me-2"></i>24/7 Priority Support</li>
+                            <li><i class="fas fa-check me-2"></i>Deployment Assistance</li>
+                            <li><i class="fas fa-check me-2"></i>A+ Grade Guarantee</li>
+                        </ul>
+                        <a href="sixsense1.html#contact" class="btn btn-outline-custom w-100 mt-4">
+                            <i class="fas fa-rocket me-2"></i>Choose Premium
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER SECTION
+         ======================================== -->
+    <footer class="footer">
+        <div class="container text-center">
+            <h5><img src="brand logo.png" alt="Six Sense" style="height: 50px; width: 150;"></h5>
+            <p>📍 Rawalpindi, Pakistan | 📞 +92 300 1234567 | ✉️ info@sixsense.com</p>
+            <p class="mt-3">&copy; 2024 Six Sense. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    
+  
+</body>
+</html>

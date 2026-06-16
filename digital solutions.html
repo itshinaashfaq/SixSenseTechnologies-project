@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Solutions - Six Sense Technologies</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #0066ff;
+            --secondary-color: #FF6B00;
+            --accent-color: #f6a860;
+            --light-gray: #7e7e7e;
+            --dark-color: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: #fafafa;
+            color: var(--dark-color);
+        }
+
+        /* Navbar */
+        .navbar {
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            filter: none;
+            transition: transform 0.3s;
+        }
+
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+            margin: 0 15px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #fff5eb 0%, #e0f2fe 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+           
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: var(--dark-color);
+            margin-bottom: 30px;
+            animation: slideInLeft 1s ease-out;
+            line-height: 1.2;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: #64748b;
+            margin-bottom: 40px;
+            animation: slideInLeft 1s ease-out 0.2s backwards;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            animation: slideInLeft 1s ease-out 0.4s backwards;
+        }
+
+        .btn-glow {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 0 30px rgba(0, 102, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-glow:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(255, 107, 0, 0.6);
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 120px 0;
+            background: white;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 80px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f8fafc 0%, white 100%);
+            border: 2px solid #f1f5f9;
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin-bottom: 40px;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.5s;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.15);
+            background: white;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(255, 107, 0, 0.1));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            transition: all 0.5s;
+        }
+
+        .service-icon i {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(360deg) scale(1.1);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .service-card:hover .service-icon i {
+            -webkit-text-fill-color: white;
+        }
+
+        .service-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .service-description {
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-badge {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            color: var(--primary-color);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .tech-badge:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 120px 0;
+            background: white;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            margin: 0 auto 30px;
+            font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+            color: white;
+        }
+
+        .step-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+
+        .step-description {
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(255, 107, 0, 0.05));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            color: var(--dark-color);
+        }
+
+        .cta-section p {
+            color: #64748b !important;
+        }
+
+        /* Footer */
+        .footer {
+            background: white;
+            color: var(--dark-color);
+            padding: 60px 0 30px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer h5 {
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .footer a {
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer ul li {
+            color: #64748b;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            margin-right: 12px;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(255, 107, 0, 0.5);
+        }
+
+        /* Digital Solutions Pricing Styles */
+        .pricing-card-digital {
+            background: white;
+            border: 2px solid #f1f5f9;
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            height: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .pricing-card-digital.popular-digital {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.15);
+        }
+
+        .popular-badge-digital {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            padding: 8px 45px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            transform: rotate(45deg);
+            z-index: 10;
+            box-shadow: 0 5px 20px rgba(255, 107, 0, 0.5);
+        }
+
+        .pricing-card-digital:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary-color);
+            box-shadow: 0 25px 70px rgba(0, 102, 255, 0.2);
+        }
+
+        .pricing-card-digital.popular-digital:hover {
+            transform: scale(1.05) translateY(-15px);
+        }
+
+        .pricing-header-digital {
+            padding: 40px 30px 30px;
+            text-align: center;
+            background: linear-gradient(135deg, #f8fafc 0%, white 100%);
+        }
+
+        .package-icon-digital {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(255, 107, 0, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            transition: all 0.5s;
+        }
+
+        .package-icon-digital i {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pricing-card-digital:hover .package-icon-digital {
+            transform: scale(1.15) rotate(360deg);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .pricing-card-digital:hover .package-icon-digital i {
+            -webkit-text-fill-color: white;
+        }
+
+        .package-name-digital {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .package-subtitle-digital {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        .pricing-body-digital {
+            padding: 35px 30px;
+        }
+
+        .price-tag-digital {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(255, 107, 0, 0.05));
+            border-radius: 20px;
+            border: 1px solid #f1f5f9;
+        }
+
+        .price-tag-digital .currency-digital {
+            font-size: 1.2rem;
+            color: #64748b;
+            vertical-align: top;
+        }
+
+        .price-tag-digital .amount-digital {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--dark-color);
+            margin: 0 8px;
+        }
+
+        .price-tag-digital .duration-digital {
+            font-size: 1.1rem;
+            color: #94a3b8;
+        }
+
+        .package-features-digital {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 35px;
+        }
+
+        .package-features-digital li {
+            padding: 14px 0;
+            color: #475569;
+            border-bottom: 1px solid #f1f5f9;
+            transition: all 0.3s;
+        }
+
+        .package-features-digital li:last-child {
+            border-bottom: none;
+        }
+
+        .package-features-digital li i {
+            margin-right: 15px;
+            font-size: 1rem;
+        }
+
+        .package-features-digital li .fa-check {
+            color: var(--primary-color);
+        }
+
+        .package-features-digital li.disabled {
+            color: #cbd5e1;
+        }
+
+        .package-features-digital li.disabled .fa-times {
+            color: #cbd5e1;
+        }
+
+        .btn-package-digital {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-package-digital::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-package-digital:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-package-digital:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 0, 0.5);
+            color: white;
+        }
+
+        /* Custom Solutions Banner */
+        .custom-solutions-banner {
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 15px 50px rgba(0, 102, 255, 0.15);
+            transition: all 0.4s;
+        }
+
+        .custom-solutions-banner:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 70px rgba(0, 102, 255, 0.2);
+            border-color: var(--secondary-color);
+        }
+
+        .custom-solutions-banner h3 {
+            color: var(--dark-color) !important;
+        }
+
+        .custom-solutions-banner p {
+            color: #64748b !important;
+        }
+
+        /* Add-on Cards */
+        .addon-card {
+            background: white;
+            border: 2px solid #f1f5f9;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s;
+            height: 100%;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .addon-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            background: white;
+            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.15);
+        }
+
+        .addon-card:hover i {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .addon-card i {
+            transition: all 0.4s;
+        }
+
+        .addon-card h4 {
+            color: var(--dark-color) !important;
+        }
+
+        .addon-card p {
+            color: #64748b !important;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="sixsense1.html">
+                <img src="brand logo.png" alt="Six Sense Technologies" height="50" width="170">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="sixsense1.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <h1 class="hero-title"><span class="highlight">Digital Solutions</span> for Modern Businesses</h1>
+                        <p class="hero-subtitle">Transform your business with cutting-edge mobile apps, powerful web platforms, and intelligent AI solutions crafted to perfection.</p>
+                        <div class="hero-cta">
+                            <a href="#services" class="btn btn-glow">Explore Our Services</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=600&fit=crop" alt="Digital Solutions" class="img-fluid" style="border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            
+            <div class="row">
+                <!-- Mobile Development -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="service-title">Mobile Development</h3>
+                        <p class="service-description">Create powerful, user-friendly Android applications that engage users and drive business growth. From concept to deployment, we build apps that stand out.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">Kotlin</span>
+                            <span class="tech-badge">Android Studio</span>
+                            <span class="tech-badge">Firebase</span>
+                            <span class="tech-badge">Material Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="service-title">Web Development</h3>
+                        <p class="service-description">Build responsive, scalable web applications using modern frameworks. Full-stack solutions from dynamic websites to complex web platforms.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">MongoDB</span>
+                            <span class="tech-badge">PHP</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">Express</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI & Machine Learning -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="service-title">AI & Machine Learning</h3>
+                        <p class="service-description">Leverage the power of artificial intelligence to solve complex problems. Predictive analytics, computer vision, NLP, and intelligent automation.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">TensorFlow</span>
+                            <span class="tech-badge">PyTorch</span>
+                            <span class="tech-badge">Scikit-learn</span>
+                            <span class="tech-badge">OpenCV</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UI/UX Design -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="service-title">UI/UX Design</h3>
+                        <p class="service-description">Design beautiful, intuitive interfaces that users love. User research, wireframing, prototyping, and visual design that converts.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Figma</span>
+                            <span class="tech-badge">Adobe XD</span>
+                            <span class="tech-badge">Sketch</span>
+                            <span class="tech-badge">Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Solutions -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3 class="service-title">Cloud Solutions</h3>
+                        <p class="service-description">Deploy and scale your applications with cloud infrastructure. Serverless architecture, microservices, and DevOps implementation.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">AWS</span>
+                            <span class="tech-badge">Azure</span>
+                            <span class="tech-badge">Docker</span>
+                            <span class="tech-badge">Kubernetes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database Management -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="service-title">Database Solutions</h3>
+                        <p class="service-description">Design and optimize databases for performance and scalability. Both SQL and NoSQL solutions tailored to your needs.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">MongoDB</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">Redis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages-section" style="padding: 120px 0; background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);">
+        <div class="container">
+            <h2 class="section-title">Our Packages</h2>
+            <p class="section-subtitle">Choose the perfect solution for your business needs</p>
+            
+            <div class="row justify-content-center">
+                <!-- Startup Package -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="pricing-card-digital">
+                        <div class="pricing-header-digital">
+                            <div class="package-icon-digital">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3 class="package-name-digital">Startup</h3>
+                            <p class="package-subtitle-digital">Perfect for small businesses</p>
+                        </div>
+                        <div class="pricing-body-digital">
+                            <div class="price-tag-digital">
+                                <span class="currency-digital">PKR</span>
+                                <span class="amount-digital">50,000</span>
+                                <span class="duration-digital">/project</span>
+                            </div>
+                            <ul class="package-features-digital">
+                                <li><i class="fas fa-check"></i> Single platform (Web OR Mobile)</li>
+                                <li><i class="fas fa-check"></i> Basic UI/UX design</li>
+                                <li><i class="fas fa-check"></i> Up to 5 pages/screens</li>
+                                <li><i class="fas fa-check"></i> Responsive design</li>
+                                <li><i class="fas fa-check"></i> Basic database integration</li>
+                                <li><i class="fas fa-check"></i> 30 days support</li>
+                                <li class="disabled"><i class="fas fa-times"></i> Advanced features</li>
+                                <li class="disabled"><i class="fas fa-times"></i> API integration</li>
+                            </ul>
+                            <a href="#contact" class="btn-package-digital">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Package (Popular) -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="pricing-card-digital popular-digital">
+                        <div class="popular-badge-digital">RECOMMENDED</div>
+                        <div class="pricing-header-digital">
+                            <div class="package-icon-digital">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3 class="package-name-digital">Business</h3>
+                            <p class="package-subtitle-digital">For growing companies</p>
+                        </div>
+                        <div class="pricing-body-digital">
+                            <div class="price-tag-digital">
+                                <span class="currency-digital">PKR</span>
+                                <span class="amount-digital">150,000</span>
+                                <span class="duration-digital">/project</span>
+                            </div>
+                            <ul class="package-features-digital">
+                                <li><i class="fas fa-check"></i> Web + Mobile app</li>
+                                <li><i class="fas fa-check"></i> Premium UI/UX design</li>
+                                <li><i class="fas fa-check"></i> Up to 15 pages/screens</li>
+                                <li><i class="fas fa-check"></i> Fully responsive</li>
+                                <li><i class="fas fa-check"></i> Advanced database</li>
+                                <li><i class="fas fa-check"></i> API integrations</li>
+                                <li><i class="fas fa-check"></i> 90 days support</li>
+                                <li><i class="fas fa-check"></i> Admin panel</li>
+                            </ul>
+                            <a href="#contact" class="btn-package-digital">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enterprise Package -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="pricing-card-digital">
+                        <div class="pricing-header-digital">
+                            <div class="package-icon-digital">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3 class="package-name-digital">Enterprise</h3>
+                            <p class="package-subtitle-digital">Complete solutions</p>
+                        </div>
+                        <div class="pricing-body-digital">
+                            <div class="price-tag-digital">
+                                <span class="currency-digital">PKR</span>
+                                <span class="amount-digital">300,000</span>
+                                <span class="duration-digital">+</span>
+                            </div>
+                            <ul class="package-features-digital">
+                                <li><i class="fas fa-check"></i> Full-stack solution</li>
+                                <li><i class="fas fa-check"></i> Custom UI/UX design</li>
+                                <li><i class="fas fa-check"></i> Unlimited pages/screens</li>
+                                <li><i class="fas fa-check"></i> Advanced features</li>
+                                <li><i class="fas fa-check"></i> Cloud infrastructure</li>
+                                <li><i class="fas fa-check"></i> Third-party integrations</li>
+                                <li><i class="fas fa-check"></i> 180 days support</li>
+                                <li><i class="fas fa-check"></i> Dedicated project manager</li>
+                                <li><i class="fas fa-check"></i> AI/ML integration available</li>
+                            </ul>
+                            <a href="#contact" class="btn-package-digital">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Solutions Banner -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-10">
+                    <div class="custom-solutions-banner">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h3 style="font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 2rem; margin-bottom: 15px;">
+                                    <i class="fas fa-lightbulb me-2" style="color: var(--secondary-color);"></i>
+                                    Need a Custom Solution?
+                                </h3>
+                                <p style="line-height: 1.8; margin-bottom: 0; font-size: 1.1rem;">
+                                    Every business is unique. Let's discuss your specific requirements and create a tailored package that perfectly fits your needs and budget.
+                                </p>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="#contact" class="btn btn-glow mt-3">Request Consultation</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add-on Services -->
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3 class="text-center mb-4" style="font-family: 'Orbitron', sans-serif; font-size: 2rem; color: var(--dark-color);">Add-on Services</h3>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="addon-card">
+                        <i class="fas fa-paint-brush" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 20px;"></i>
+                        <h4 style="font-size: 1.3rem; margin-bottom: 15px;">UI/UX Design</h4>
+                        <p style="margin-bottom: 20px;">Professional design services</p>
+                        <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700;">
+                            <span style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">PKR 15,000+</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="addon-card">
+                        <i class="fas fa-robot" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 20px;"></i>
+                        <h4 style="font-size: 1.3rem; margin-bottom: 15px;">AI Integration</h4>
+                        <p style="margin-bottom: 20px;">Smart features & automation</p>
+                        <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700;">
+                            <span style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">PKR 50,000+</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="addon-card">
+                        <i class="fas fa-server" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 20px;"></i>
+                        <h4 style="font-size: 1.3rem; margin-bottom: 15px;">Cloud Hosting</h4>
+                        <p style="margin-bottom: 20px;">Deployment & maintenance</p>
+                        <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700;">
+                            <span style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">PKR 10,000/mo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="addon-card">
+                        <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 20px;"></i>
+                        <h4 style="font-size: 1.3rem; margin-bottom: 15px;">Security Audit</h4>
+                        <p style="margin-bottom: 20px;">Comprehensive testing</p>
+                        <div style="font-family: 'Orbitron', sans-serif; font-size: 1.5rem; font-weight: 700;">
+                            <span style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">PKR 25,000+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <h2 class="section-title">Our Process</h2>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <h4 class="step-title">Discovery</h4>
+                        <p class="step-description">We understand your business goals, challenges, and requirements through detailed consultation.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <h4 class="step-title">Design</h4>
+                        <p class="step-description">Create wireframes, prototypes, and visual designs that align with your brand and user needs.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <h4 class="step-title">Development</h4>
+                        <p class="step-description">Build robust, scalable solutions using best practices and cutting-edge technologies.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step">
+                        <div class="step-number">04</div>
+                        <h4 class="step-title">Deployment</h4>
+                        <p class="step-description">Launch your product with comprehensive testing, optimization, and ongoing support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Transform Your Business?</h2>
+                <p style="font-size: 1.2rem; color: #cbd5e1; margin-bottom: 40px;">Let's discuss how our digital solutions can help you achieve your goals.</p>
+                <a href="#contact" class="btn btn-glow">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Six Sense Technologies</h5>
+                    <p style="color: #64748b;">Transforming ideas into reality with cutting-edge digital solutions.</p>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="sixsense1.html">Home</a></li>
+                        <li class="mb-2"><a href="#services">Services</a></li>
+                        <li class="mb-2"><a href="mentorship.html">Mentorship</a></li>
+                        <li class="mb-2"><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Info</h5>
+                    <ul class="list-unstyled" style="color: #64748b;">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Rawalpindi, Pakistan</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>+92 300 1234567</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>info@sixsense.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr style="border-color: #e2e8f0; margin: 40px 0 20px;">
+            
+            <div class="text-center">
+                <p style="color: #64748b;">&copy; 2024 Six Sense Technologies. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when link is clicked
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

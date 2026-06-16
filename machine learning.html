@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning - Six Sense</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        :root {
+    --primary-color: #0066FF;      /* Blue from logo */
+    --secondary-color: #FF6B00;    /* Orange from logo */
+    --accent-color: #f6a860;       /* Yellow from logo */
+    --light-gray: #7e7e7e;         /* Gray from logo */
+    --dark-color: #1a1a1a;         /* Dark for text */
+}
+        /* Navbar */
+        .navbar {
+    padding: 20px 0;
+    transition: background-color 0.3s ease;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.6), rgba(255, 107, 0, 0.4));
+    background-color:white;
+    
+}
+
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color) !important;
+}
+
+.nav-link {
+    margin: 0 15px;
+    font-weight: 500;
+    transition: color 0.3s;
+    color:#0066FF!important;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color) !important;
+}
+        .dropdown-menu {
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .dropdown-item {
+            color: var(--dark-color);
+            padding: 12px 20px;
+            transition: all 0.3s;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .course-hero {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.9), rgba(255, 107, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1555255707-c07966088b7b?w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 150px 0 100px;
+            margin-top: 100px;
+        }
+        .sec{
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.9), rgba(255, 107, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1555255707-c07966088b7b?w=1920');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .course-hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .badge-custom {
+            background: rgba(255, 184, 0, 0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin-right: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-enroll {
+            background: linear-gradient(135deg, #0066FF, #FF6B00);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-enroll:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #FF6B00, #FFB800);
+            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.5);
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: -50px;
+            border-top: 4px solid #0066FF;
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            border-top-color: #FF6B00;
+            transform: translateY(-5px);
+        }
+
+        .info-card i {
+            font-size: 3rem;
+            color: #0066FF;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        .info-card:hover i {
+            color: #FF6B00;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #0066FF, #FF6B00, #FFB800);
+        }
+
+        .ml-topic-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #0066FF;
+            transition: all 0.3s;
+        }
+
+        .ml-topic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 0, 0.3);
+            border-top-color: #FF6B00;
+        }
+
+        .ml-topic-card h4 {
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .ml-topic-card i {
+            font-size: 2.5rem;
+            color: #0066FF;
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+
+        .ml-topic-card:hover i {
+            color: #FF6B00;
+        }
+
+        .curriculum-item {
+            background: white;
+            border-left: 4px solid #0066FF;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .curriculum-item:hover {
+            border-left-color: #FF6B00;
+            transform: translateX(10px);
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, #C0C0C0, #e0e0e0);
+            padding: 8px 18px;
+            border-radius: 20px;
+            margin: 5px;
+            display: inline-block;
+            color: #1a1a1a;
+            transition: all 0.3s;
+        }
+
+        .tech-badge:hover {
+            background: linear-gradient(135deg, #0066FF, #FF6B00);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .pricing-card {
+        background: linear-gradient(135deg, #0066FF, #1a1a1a);
+        color: white;
+        border-radius: 20px;
+        padding: 50px 40px;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        border: 3px solid #FF6B00;
+        position: relative;
+        transition: all 0.3s;
+        height: 100%;
+    }
+
+    .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px rgba(0, 102, 255, 0.3);
+    }
+
+    .pricing-card.premium {
+        border: 3px solid #FFB800;
+        background: linear-gradient(135deg, #FF6B00, #1a1a1a);
+    }
+
+    .pricing-card.premium:hover {
+        box-shadow: 0 30px 60px rgba(255, 107, 0, 0.4);
+    }
+
+    .package-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, #FF6B00, #FFB800);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+    }
+
+    .premium-badge {
+        background: linear-gradient(135deg, #FFB800, #FF6B00);
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    .pricing-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: white;
+    }
+
+    .package-subtitle {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .pricing-card .price {
+        font-size: 3rem;
+        font-weight: bold;
+        background: linear-gradient(135deg, #FFB800, #FF6B00);
+       
+        -webkit-text-fill-color: transparent;
+        margin: 20px 0;
+        display: inline-block;
+    }
+
+    .pricing-card ul {
+        text-align: left;
+        list-style: none;
+        padding: 0;
+        margin: 30px 0;
+    }
+
+    .pricing-card ul li {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 0.95rem;
+        transition: all 0.3s;
+    }
+
+    .pricing-card ul li:hover {
+        padding-left: 10px;
+        border-bottom-color: rgba(255, 184, 0, 0.3);
+    }
+
+    .pricing-card ul li:last-child {
+        border-bottom: none;
+    }
+
+    .pricing-card ul li i {
+        color: #FFB800;
+        font-size: 1.1rem;
+    }
+
+    .pricing-card.premium ul li i {
+        color: #FFB800;
+    }
+
+    .btn-enroll {
+        background: linear-gradient(135deg, #FFB800, #FF6B00);
+        color: white;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-enroll:hover {
+        background: linear-gradient(135deg, #FF6B00, #0066FF);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(255, 184, 0, 0.5);
+        color: white;
+    }
+
+    .project-card {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        padding: 30px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        border-left: 5px solid #0066FF;
+        transition: all 0.3s;
+    }
+
+    .project-card:hover {
+        border-left-color: #FF6B00;
+        box-shadow: 0 10px 20px rgba(0, 102, 255, 0.2);
+    }
+
+    @media (max-width: 991px) {
+        .pricing-card {
+            margin-bottom: 30px;
+        }
+        
+        .pricing-card .price {
+            font-size: 2.5rem;
+        }
+    }
+        
+        .footer {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.6), rgba(255, 107, 0, 0.4));
+            background-color:white;
+            padding: 40px 0 20px;
+        }
+
+        .footer h5 {
+            background: linear-gradient(to right, #0066FF, #FF6B00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+    </style>
+</head>
+<body>
+     <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="brand logo.png" alt="Six Sense Technologies Logo" height="50" width="170">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="sixsense1.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                            Courses
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="mobile dev.html">Mobile Development</a></li>
+                            <li><a class="dropdown-item" href="web develop.html">Web Development</a></li>
+                            <li><a class="dropdown-item" href="machine learning.html">Machine Learning</a></li>
+                            <li><a class="dropdown-item" href="fyp.html">FYP Supervision</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Course Hero -->
+    <section class="course-hero">
+        <div class="container">
+            <h1><i class="fas fa-brain me-3"></i>Machine Learning & AI</h1>
+            <p class="lead">Build Intelligent Systems with Python, TensorFlow & Deep Learning</p>
+            <div class="mb-4">
+                <span class="badge-custom"><i class="fas fa-clock me-2"></i>10 Months</span>
+                <span class="badge-custom"><i class="fas fa-robot me-2"></i>AI & Deep Learning</span>
+                <span class="badge-custom"><i class="fas fa-chart-line me-2"></i>Real World Projects</span>
+            </div>
+            <a href="#pricing" class="btn btn-enroll"><i class="fas fa-graduation-cap me-2"></i>Enroll Now</a>
+        </div>
+    </section>
+
+    <!-- Quick Info -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="info-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h4>Duration</h4>
+                        <p>10 Months<br>Comprehensive Training</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="info-card">
+                        <i class="fas fa-python"></i>
+                        <h4>Python Based</h4>
+                        <p>Industry Standard<br>Language</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="info-card">
+                        <i class="fas fa-project-diagram"></i>
+                        <h4>Projects</h4>
+                        <p>12+ AI/ML<br>Applications</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="info-card">
+                        <i class="fas fa-database"></i>
+                        <h4>Datasets</h4>
+                        <p>Real World<br>Data Analysis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ML Topics Overview -->
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Machine Learning Topics Covered</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="ml-topic-card text-center">
+                        <i class="fas fa-chart-bar"></i>
+                        <h4>Supervised Learning</h4>
+                        <p>Linear Regression, Logistic Regression, Decision Trees, Random Forest, SVM, KNN</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="ml-topic-card text-center">
+                        <i class="fas fa-project-diagram"></i>
+                        <h4>Unsupervised Learning</h4>
+                        <p>K-Means Clustering, Hierarchical Clustering, PCA, Dimensionality Reduction</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="ml-topic-card text-center">
+                        <i class="fas fa-brain"></i>
+                        <h4>Deep Learning</h4>
+                        <p>Neural Networks, CNN, RNN, LSTM, Transfer Learning, GANs</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="ml-topic-card text-center">
+                        <i class="fas fa-language"></i>
+                        <h4>Natural Language Processing</h4>
+                        <p>Text Processing, Sentiment Analysis, Language Models, Transformers</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="ml-topic-card text-center">
+                        <i class="fas fa-eye"></i>
+                        <h4>Computer Vision</h4>
+                        <p>Image Classification, Object Detection, Face Recognition, Image Segmentation</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="ml-topic-card text-center">
+                        <i class="fas fa-microchip"></i>
+                        <h4>Model Deployment</h4>
+                        <p>Flask APIs, Model Optimization, Cloud Deployment, Production Systems</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Overview -->
+    <section class="sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8" style="color: #e0e0e0;">
+                    <h2 class="section-title">Course Overview</h2>
+                    <p class="lead">Dive deep into the world of Artificial Intelligence and Machine Learning. Learn to build intelligent systems that can learn from data and make predictions.</p>
+                    
+                    <p>This comprehensive course covers everything from Python programming basics to advanced deep learning techniques. You'll work with real-world datasets, build production-ready ML models, and deploy them as web applications.</p>
+
+                    <h3 class="mt-5 mb-4">Prerequisites</h3>
+                    <ul>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #0066FF;"></i>Basic programming knowledge (any language)</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #FF6B00;"></i>High school level mathematics</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #FFB800;"></i>Strong analytical thinking</li>
+                        <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #0066FF;"></i>Interest in data and problem-solving</li>
+                    </ul>
+
+                    <h3 class="mt-5 mb-4">Tech Stack & Tools</h3>
+                    <div>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">NumPy</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">Scikit-learn</span>
+                        <span class="tech-badge">TensorFlow</span>
+                        <span class="tech-badge">Keras</span>
+                        <span class="tech-badge">PyTorch</span>
+                        <span class="tech-badge">OpenCV</span>
+                        <span class="tech-badge">NLTK</span>
+                        <span class="tech-badge">Jupyter</span>
+                        <span class="tech-badge">Flask</span>
+                        <span class="tech-badge">Docker</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="project-card">
+                        <h4><i class="fas fa-lightbulb me-2" style="color: #FFB800;"></i>Career Opportunities</h4>
+                        <ul class="list-unstyled mt-3">
+                            <li class="mb-2">🎯 Machine Learning Engineer</li>
+                            <li class="mb-2">📊 Data Scientist</li>
+                            <li class="mb-2">🤖 AI Research Engineer</li>
+                            <li class="mb-2">👁️ Computer Vision Engineer</li>
+                            <li class="mb-2">💬 NLP Engineer</li>
+                            <li class="mb-2">📈 Data Analyst</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-card mt-4">
+                        <h4><i class="fas fa-award me-2" style="color: #FF6B00;"></i>Industry Recognition</h4>
+                        <p>Our certification is recognized by leading tech companies in Pakistan and internationally.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum -->
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-title">Detailed Curriculum</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="curriculum-item">
+                        <h5><i class="fas fa-book me-2"></i>Module 1: Python for Data Science</h5>
+                        <p>Python fundamentals, NumPy, Pandas, Matplotlib, data manipulation and visualization.</p>
+                    </div>
+                    <div class="curriculum-item">
+                        <h5><i class="fas fa-book me-2"></i>Module 2: Statistics & Mathematics</h5>
+                        <p>Probability, statistics, linear algebra, calculus for ML.</p>
+                    </div>
+                    <div class="curriculum-item">
+                        <h5><i class="fas fa-book me-2"></i>Module 3: Classical Machine Learning</h5>
+                        <p>Supervised and unsupervised learning algorithms, model evaluation.</p>
+                    </div>
+                    <div class="curriculum-item">
+                        <h5><i class="fas fa-book me-2"></i>Module 4: Deep Learning Fundamentals</h5>
+                        <p>Neural networks, backpropagation, optimization techniques.</p>
+                    </div>
+                    <div class="curriculum-item">
+                        <h5><i class="fas fa-book me-2"></i>Module 5: Convolutional Neural Networks</h5>
+                        <p>Image classification, object detection, transfer learning.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="curriculum-item">
+                        <h5><i class="fas fa-book me-2"></i>Module 6: Recurrent Neural Networks</h5>
+                        <p>Sequence modeling, LSTM, GRU, time series prediction.</p>
+                    </div>
+                    <div class="curriculum-item">
+                        <h5><i class="fas fa-book me-2"></i>Module 7: Natural Language Processing</h5>
+                        <p>Text preprocessing, embeddings, transformers, BERT.</p>
+                    </div>
+                    <div class="curriculum-item">
+                        <h5><i class="fas fa-book me-2"></i>Module 8: Computer Vision</h5>
+                        <p>Image processing, feature extraction, advanced CV techniques.</p>
+                    </div>
+                    <div class="curriculum-item">
+                        <h5><i class="fas fa-book me-2"></i>Module 9: Model Deployment</h5>
+                        <p>Flask APIs, Docker, cloud deployment, model optimization.</p>
+                    </div>
+                    <div class="curriculum-item">
+                        <h5><i class="fas fa-book me-2"></i>Module 10: Capstone Project</h5>
+                        <p>End-to-end ML project from data collection to deployment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-World Projects -->
+    <section class="sec">
+        <div class="container">
+            <h2 class="section-title">Real-World Projects You'll Build</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <h4>🏠 House Price Prediction</h4>
+                        <p>Build a regression model to predict real estate prices using multiple features.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>📧 Email Spam Classifier</h4>
+                        <p>Create an NLP-based system to classify emails as spam or legitimate.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>👤 Face Recognition System</h4>
+                        <p>Implement a computer vision system for facial recognition and verification.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>💬 Chatbot with NLP</h4>
+                        <p>Build an intelligent chatbot using natural language processing.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>🚗 Self-Driving Car Simulation</h4>
+                        <p>Create a lane detection and object recognition system for autonomous vehicles.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>💹 Stock Price Predictor</h4>
+                        <p>Use time series analysis and LSTM networks to predict stock movements.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <h4>🎭 Sentiment Analysis Tool</h4>
+                        <p>Analyze customer reviews and social media sentiment using NLP.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>🏥 Disease Prediction System</h4>
+                        <p>Build a healthcare ML model to predict diseases from symptoms.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>🎨 Image Style Transfer</h4>
+                        <p>Apply artistic styles to images using deep neural networks.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>📊 Customer Segmentation</h4>
+                        <p>Use clustering algorithms to segment customers for marketing.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>🔍 Object Detection System</h4>
+                        <p>Implement YOLO or Faster R-CNN for real-time object detection.</p>
+                    </div>
+                    <div class="project-card">
+                        <h4>🎯 Recommendation Engine</h4>
+                        <p>Build a collaborative filtering system like Netflix or Amazon.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+     
+<!-- Pricing -->
+<section id="pricing" class="bg-light">
+    <div class="container">
+        <h2 class="section-title text-center">Choose Your Learning Path</h2>
+        <div class="row justify-content-center">
+            <!-- Standard Package -->
+            <div class="col-lg-5 col-md-6 mb-4">
+                <div class="pricing-card">
+                    <div class="package-badge">Popular</div>
+                    <h3>Standard Package</h3>
+                    <div class="price">PKR 45,000</div>
+                    <p class="package-subtitle">Essential AI/ML Training</p>
+                    <ul class="text-start">
+                        <li><i class="fas fa-check me-2"></i>8 Months Training</li>
+                        <li><i class="fas fa-check me-2"></i>Python & ML Fundamentals</li>
+                        <li><i class="fas fa-check me-2"></i>8+ Industry Projects</li>
+                        <li><i class="fas fa-check me-2"></i>TensorFlow Basics</li>
+                        <li><i class="fas fa-check me-2"></i>Supervised & Unsupervised Learning</li>
+                        <li><i class="fas fa-check me-2"></i>Model Deployment Basics</li>
+                        <li><i class="fas fa-check me-2"></i>Industry Certification</li>
+                        <li><i class="fas fa-check me-2"></i>Job Placement Support</li>
+                        <li><i class="fas fa-check me-2"></i>6 Months Resource Access</li>
+                    </ul>
+                    <a href="sixsense1.html#contact" class="btn btn-enroll w-100 " style="margin-top: 120px;">
+                        <i class="fas fa-graduation-cap me-2"></i>Get Started
+                    </a>
+                    <p class="mt-3 mb-0"><small>Flexible payment plans available</small></p>
+                </div>
+            </div>
+
+            <!-- Premium Package -->
+            <div class="col-lg-5 col-md-6 mb-4">
+                <div class="pricing-card premium">
+                    <div class="package-badge premium-badge">Best Value</div>
+                    <h3>Premium Package</h3>
+                    <div class="price">PKR 60,000</div>
+                    <p class="package-subtitle">Complete AI/ML Mastery</p>
+                    <ul class="text-start">
+                        <li><i class="fas fa-check me-2"></i>10 Months Comprehensive Training</li>
+                        <li><i class="fas fa-check me-2"></i>Python to Advanced Deep Learning</li>
+                        <li><i class="fas fa-check me-2"></i>12+ Industry Projects</li>
+                        <li><i class="fas fa-check me-2"></i>TensorFlow & PyTorch</li>
+                        <li><i class="fas fa-check me-2"></i>NLP & Computer Vision</li>
+                        <li><i class="fas fa-check me-2"></i>Advanced Model Deployment</li>
+                        <li><i class="fas fa-check me-2"></i>Research Paper Guidance</li>
+                        <li><i class="fas fa-check me-2"></i>Industry Certification</li>
+                        <li><i class="fas fa-check me-2"></i>Priority Job Placement</li>
+                        <li><i class="fas fa-check me-2"></i>Lifetime Access to Resources</li>
+                        <li><i class="fas fa-check me-2"></i>One-on-One Mentoring Sessions</li>
+                    </ul>
+                    <a href="sixsense1.html#contact" class="btn btn-enroll w-100 mt-4">
+                        <i class="fas fa-rocket me-2"></i>Start Your AI Journey
+                    </a>
+                    <p class="mt-3 mb-0"><small>Payment plans • 100% practical training</small></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Comparison Note -->
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <p class="text-muted">
+                    <i class="fas fa-info-circle me-2"></i>
+                    Not sure which package is right for you? <a href="sixsense1.html#contact" style="color: #0066FF; font-weight: bold;">Contact us for guidance</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+  
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <h5> <img src="brand logo.png" alt="Six Sense Technologies Logo" width="150" height="50"></h5>
+            <p>📍 Rawalpindi, Pakistan | 📞 +92 300 1234567 | ✉️ info@sixsense.com</p>
+            <p class="mt-3">&copy; 2024 Six Sense. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+   
+</body>
+</html>

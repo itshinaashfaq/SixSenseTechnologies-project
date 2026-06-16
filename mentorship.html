@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentorship & Training - Six Sense Technologies</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Work+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #0066ff;
+            --secondary-color: #FF6B00;
+            --accent-color: #f6a860;
+            --light-gray: #7e7e7e;
+            --dark-color: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: #fafafa;
+            color: var(--dark-color);
+        }
+
+        /* Navbar */
+        .navbar {
+            padding: 20px 0;
+            background: white !important;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand img {
+            transition: transform 0.3s;
+        }
+
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 600;
+            margin: 0 15px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #fff5eb 0%, #e0f2fe 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--dark-color);
+            margin-bottom: 25px;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #64748b;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .hero-cta {
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.4s;
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 0, 0.4);
+        }
+
+        .btn-outline-custom {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 16px 43px;
+            border-radius: 50px;
+            background: transparent;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            margin-left: 15px;
+        }
+
+        .btn-outline-custom:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Courses Section */
+        .courses-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 70px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid #f1f5f9;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .course-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0, 102, 255, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .course-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(255, 107, 0, 0.1));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            transition: all 0.4s;
+        }
+
+        .course-card:hover .course-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .course-card:hover .course-icon i {
+            color: white !important;
+        }
+
+        .course-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .course-description {
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .course-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+        }
+
+        .course-features li {
+            padding: 8px 0;
+            color: #475569;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .course-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-pill {
+            background: #f1f5f9;
+            color: var(--primary-color);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .tech-pill:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* FYP Section */
+        .fyp-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+        }
+
+        .fyp-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .fyp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .fyp-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .fyp-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .fyp-description {
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-family: 'Space Mono', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .testimonial-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--secondary-color);
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .author-info h5 {
+            margin: 0;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .author-info p {
+            margin: 0;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Pricing Section */
+        .pricing-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            border: 2px solid #f1f5f9;
+            position: relative;
+            height: 100%;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(0, 102, 255, 0.2);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            padding: 8px 45px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            transform: rotate(45deg);
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-color);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-header {
+            padding: 40px 30px 30px;
+            text-align: center;
+            background: linear-gradient(135deg, #f8fafc 0%, white 100%);
+        }
+
+        .package-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(255, 107, 0, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            transition: all 0.4s;
+        }
+
+        .pricing-card:hover .package-icon {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .pricing-card:hover .package-icon i {
+            color: white !important;
+        }
+
+        .package-icon i {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: all 0.4s;
+        }
+
+        .package-name {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .package-subtitle {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .pricing-body {
+            padding: 30px;
+        }
+
+        .price-tag {
+            text-align: center;
+            margin-bottom: 35px;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(255, 107, 0, 0.05));
+            border-radius: 15px;
+        }
+
+        .price-tag .currency {
+            font-size: 1.1rem;
+            color: #64748b;
+            vertical-align: top;
+        }
+
+        .price-tag .amount {
+            font-family: 'Space Mono', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin: 0 5px;
+        }
+
+        .price-tag .duration {
+            font-size: 1rem;
+            color: #94a3b8;
+        }
+
+        .package-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+        }
+
+        .package-features li {
+            padding: 12px 0;
+            color: #475569;
+            border-bottom: 1px solid #f1f5f9;
+            transition: all 0.3s;
+        }
+
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+
+        .package-features li i {
+            margin-right: 12px;
+            font-size: 1rem;
+        }
+
+        .package-features li .fa-check {
+            color: var(--primary-color);
+        }
+
+        .package-features li.disabled {
+            color: #cbd5e1;
+        }
+
+        .package-features li.disabled .fa-times {
+            color: #cbd5e1;
+        }
+
+        .btn-package {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 102, 255, 0.2);
+        }
+
+        .btn-package:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.4);
+            color: white;
+        }
+
+        /* FYP Package Card */
+        .fyp-package-card {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(255, 107, 0, 0.05));
+            border-radius: 25px;
+            padding: 50px;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+        }
+
+        .fyp-package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.15);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(255, 107, 0, 0.05));
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            color: var(--dark-color);
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        .footer {
+            background: white;
+            color: var(--dark-color);
+            padding: 60px 0 30px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer h5 {
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .footer a {
+            color: #64748b;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            margin-right: 12px;
+            transition: all 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(255, 107, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .btn-outline-custom {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="sixsense1.html">
+                <img src="brand logo.png" alt="Six Sense Technologies" height="50" width="170">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="sixsense1.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#fyp">FYP Supervision</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <div class="hero-badge">🎓 Learn from Experts</div>
+                        <h1 class="hero-title">Shape Your Future with <span class="highlight">Expert Mentorship</span></h1>
+                        <p class="hero-subtitle">Master cutting-edge technologies through hands-on training and personalized guidance. From mobile development to AI, we'll help you build the skills that matter.</p>
+                        <div class="hero-cta">
+                            <a href="#courses" class="btn btn-primary-custom">Explore Courses</a>
+                            <a href="#contact" class="btn btn-outline-custom">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=500&fit=crop" alt="Mentorship" class="img-fluid" style="border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses-section">
+        <div class="container">
+            <h2 class="section-title">Our Courses</h2>
+            <p class="section-subtitle">Comprehensive training programs designed to transform you into a skilled developer</p>
+            
+            <div class="row">
+                <!-- Mobile Development Course -->
+                <div class="col-lg-6">
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-mobile-alt" style="color: var(--primary-color);"></i>
+                        </div>
+                        <h3 class="course-title">Mobile App Development</h3>
+                        <p class="course-description">Build powerful Android applications from scratch. Learn the fundamentals of mobile development and create apps that users love.</p>
+                        
+                        <ul class="course-features">
+                            <li>Android Studio setup and fundamentals</li>
+                            <li>Java & Kotlin programming</li>
+                            <li>UI/UX design for mobile</li>
+                            <li>Firebase integration & APIs</li>
+                            <li>Real-world app deployment</li>
+                        </ul>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill">Java</span>
+                            <span class="tech-pill">Kotlin</span>
+                            <span class="tech-pill">Android Studio</span>
+                            <span class="tech-pill">Firebase</span>
+                            <span class="tech-pill">Material Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development Course -->
+                <div class="col-lg-6">
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-code" style="color: var(--secondary-color);"></i>
+                        </div>
+                        <h3 class="course-title">Full-Stack Web Development</h3>
+                        <p class="course-description">Master both frontend and backend development. Build modern, responsive web applications using industry-standard technologies.</p>
+                        
+                        <ul class="course-features">
+                            <li>HTML, CSS & JavaScript mastery</li>
+                            <li>React.js for dynamic frontends</li>
+                            <li>Node.js & Express backend</li>
+                            <li>MongoDB database management</li>
+                            <li>Complete MERN stack projects</li>
+                        </ul>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill">React</span>
+                            <span class="tech-pill">Node.js</span>
+                            <span class="tech-pill">MongoDB</span>
+                            <span class="tech-pill">Express</span>
+                            <span class="tech-pill">PHP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Machine Learning Course -->
+                <div class="col-lg-6">
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-brain" style="color: #9333ea;"></i>
+                        </div>
+                        <h3 class="course-title">Machine Learning & AI</h3>
+                        <p class="course-description">Dive into artificial intelligence and build intelligent systems. Learn data science, ML algorithms, and deep learning.</p>
+                        
+                        <ul class="course-features">
+                            <li>Python programming for data science</li>
+                            <li>Machine learning algorithms</li>
+                            <li>Neural networks & deep learning</li>
+                            <li>Computer vision with OpenCV</li>
+                            <li>Real-world ML projects</li>
+                        </ul>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">TensorFlow</span>
+                            <span class="tech-pill">PyTorch</span>
+                            <span class="tech-pill">Scikit-learn</span>
+                            <span class="tech-pill">Pandas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advanced Programming -->
+                <div class="col-lg-6">
+                    <div class="course-card">
+                        <div class="course-icon">
+                            <i class="fas fa-laptop-code" style="color: #059669;"></i>
+                        </div>
+                        <h3 class="course-title">Advanced Programming Concepts</h3>
+                        <p class="course-description">Deepen your programming knowledge with data structures, algorithms, and software design patterns.</p>
+                        
+                        <ul class="course-features">
+                            <li>Data structures & algorithms</li>
+                            <li>Object-oriented programming</li>
+                            <li>Design patterns & best practices</li>
+                            <li>Code optimization techniques</li>
+                            <li>Problem-solving workshops</li>
+                        </ul>
+
+                        <div class="tech-pills">
+                            <span class="tech-pill">DSA</span>
+                            <span class="tech-pill">OOP</span>
+                            <span class="tech-pill">Design Patterns</span>
+                            <span class="tech-pill">Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages-section" style="padding: 100px 0; background: white;">
+        <div class="container">
+            <h2 class="section-title">Our Packages</h2>
+            <p class="section-subtitle">Choose the perfect plan that fits your learning goals and budget</p>
+            
+            <div class="row justify-content-center">
+                <!-- Basic Package -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <div class="package-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="package-name">Basic</h3>
+                            <p class="package-subtitle">Perfect for beginners</p>
+                        </div>
+                        <div class="pricing-body">
+                            <div class="price-tag">
+                                <span class="currency">PKR</span>
+                                <span class="amount">15,000</span>
+                                <span class="duration">/month</span>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class="fas fa-check"></i> Single course access</li>
+                                <li><i class="fas fa-check"></i> 2 classes per week</li>
+                                <li><i class="fas fa-check"></i> Basic learning materials</li>
+                                <li><i class="fas fa-check"></i> Email support</li>
+                                <li><i class="fas fa-check"></i> Certificate on completion</li>
+                                <li class="disabled"><i class="fas fa-times"></i> Live project</li>
+                                <li class="disabled"><i class="fas fa-times"></i> Job assistance</li>
+                            </ul>
+                            <a href="#contact" class="btn-package">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional Package (Popular) -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">MOST POPULAR</div>
+                        <div class="pricing-header">
+                            <div class="package-icon">
+                                <i class="fas fa-crown"></i>
+                            </div>
+                            <h3 class="package-name">Professional</h3>
+                            <p class="package-subtitle">Best for career growth</p>
+                        </div>
+                        <div class="pricing-body">
+                            <div class="price-tag">
+                                <span class="currency">PKR</span>
+                                <span class="amount">25,000</span>
+                                <span class="duration">/month</span>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class="fas fa-check"></i> 2 courses access</li>
+                                <li><i class="fas fa-check"></i> 4 classes per week</li>
+                                <li><i class="fas fa-check"></i> Premium learning materials</li>
+                                <li><i class="fas fa-check"></i> Priority support</li>
+                                <li><i class="fas fa-check"></i> Certificate on completion</li>
+                                <li><i class="fas fa-check"></i> 1 live project</li>
+                                <li><i class="fas fa-check"></i> Job assistance</li>
+                            </ul>
+                            <a href="#contact" class="btn-package">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <div class="package-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h3 class="package-name">Premium</h3>
+                            <p class="package-subtitle">Complete mastery</p>
+                        </div>
+                        <div class="pricing-body">
+                            <div class="price-tag">
+                                <span class="currency">PKR</span>
+                                <span class="amount">40,000</span>
+                                <span class="duration">/month</span>
+                            </div>
+                            <ul class="package-features">
+                                <li><i class="fas fa-check"></i> All courses access</li>
+                                <li><i class="fas fa-check"></i> Unlimited classes</li>
+                                <li><i class="fas fa-check"></i> All learning materials</li>
+                                <li><i class="fas fa-check"></i> 24/7 dedicated support</li>
+                                <li><i class="fas fa-check"></i> Certificate on completion</li>
+                                <li><i class="fas fa-check"></i> 3 live projects</li>
+                                <li><i class="fas fa-check"></i> Premium job assistance</li>
+                                <li><i class="fas fa-check"></i> One-on-one mentorship</li>
+                            </ul>
+                            <a href="#contact" class="btn-package">Choose Plan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FYP Package -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-8">
+                    <div class="fyp-package-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h3 style="font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 1.8rem; color: var(--dark-color); margin-bottom: 15px;">
+                                    <i class="fas fa-graduation-cap me-2" style="color: var(--secondary-color);"></i>
+                                    FYP Supervision Package
+                                </h3>
+                                <p style="color: #64748b; line-height: 1.8; margin-bottom: 20px;">
+                                    Complete guidance for your Final Year Project from ideation to defense. Includes weekly meetings, code reviews, documentation support, and presentation preparation.
+                                </p>
+                                <ul style="list-style: none; padding: 0; color: #475569;">
+                                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle me-2" style="color: var(--primary-color);"></i> Weekly supervision meetings</li>
+                                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle me-2" style="color: var(--primary-color);"></i> Complete project guidance</li>
+                                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle me-2" style="color: var(--primary-color);"></i> Documentation & research support</li>
+                                    <li><i class="fas fa-check-circle me-2" style="color: var(--primary-color);"></i> Defense preparation</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="fyp-price">
+                                    <span style="font-size: 1rem; color: #64748b;">Starting from</span>
+                                    <div style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 10px 0;">
+                                        PKR 30,000
+                                    </div>
+                                    <span style="font-size: 0.9rem; color: #94a3b8;">per semester</span>
+                                    <a href="#contact" class="btn btn-primary-custom mt-3 d-block">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-box">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Students Trained</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-box">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-box">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-box">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">FYP Supervised</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FYP Supervision Section -->
+    <section id="fyp" class="fyp-section">
+        <div class="container">
+            <h2 class="section-title">Final Year Project Supervision</h2>
+            <p class="section-subtitle">Expert guidance to help you excel in your capstone project</p>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="fyp-card">
+                        <div class="fyp-number">01</div>
+                        <h4 class="fyp-title">Project Ideation</h4>
+                        <p class="fyp-description">Help you identify innovative project ideas that align with your interests and industry trends. We guide you through feasibility analysis.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="fyp-card">
+                        <div class="fyp-number">02</div>
+                        <h4 class="fyp-title">Technical Guidance</h4>
+                        <p class="fyp-description">Expert mentorship on technology selection, architecture design, and implementation strategies to ensure project success.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="fyp-card">
+                        <div class="fyp-number">03</div>
+                        <h4 class="fyp-title">Research Support</h4>
+                        <p class="fyp-description">Assistance with literature review, methodology design, and academic writing to strengthen your project documentation.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="fyp-card">
+                        <div class="fyp-number">04</div>
+                        <h4 class="fyp-title">Code Reviews</h4>
+                        <p class="fyp-description">Regular code reviews and feedback sessions to ensure best practices, code quality, and optimal performance.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="fyp-card">
+                        <div class="fyp-number">05</div>
+                        <h4 class="fyp-title">Presentation Prep</h4>
+                        <p class="fyp-description">Help you create compelling presentations and prepare for your project defense with confidence.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="fyp-card">
+                        <div class="fyp-number">06</div>
+                        <h4 class="fyp-title">Continuous Support</h4>
+                        <p class="fyp-description">Regular meetings, progress tracking, and troubleshooting support throughout your project timeline.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Student Success Stories</h2>
+            <p class="section-subtitle">Hear what our students have to say about their learning journey</p>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The mentorship I received was incredible. The hands-on approach and real-world projects helped me land my dream job as a mobile developer."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AH</div>
+                            <div class="author-info">
+                                <h5>Ahmed Hassan</h5>
+                                <p>Mobile Developer at TechCorp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The FYP supervision was outstanding. My supervisor guided me through every challenge, and my project received top marks. Highly recommended!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SK</div>
+                            <div class="author-info">
+                                <h5>Sara Khan</h5>
+                                <p>AI Researcher</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Learning full-stack development here was the best decision. The instructors are patient, knowledgeable, and truly invested in student success."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MA</div>
+                            <div class="author-info">
+                                <h5>Muhammad Ali</h5>
+                                <p>Full-Stack Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The machine learning course opened up new career opportunities for me. The practical projects and industry insights were invaluable."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">FN</div>
+                            <div class="author-info">
+                                <h5>Fatima Noor</h5>
+                                <p>Data Scientist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to Start Your Learning Journey?</h2>
+            <p class="cta-subtitle">Join hundreds of students who have transformed their careers with us</p>
+            <a href="#contact" class="btn btn-primary-custom">Enroll Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>Six Sense Technologies</h5>
+                    <p style="color: #64748b;">Empowering students with cutting-edge tech skills and personalized mentorship.</p>
+                    <div class="mt-3">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="sixsense1.html">Home</a></li>
+                        <li class="mb-2"><a href="#courses">Courses</a></li>
+                        <li class="mb-2"><a href="digital-solutions.html">Digital Solutions</a></li>
+                        <li class="mb-2"><a href="#fyp">FYP Supervision</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Info</h5>
+                    <ul class="list-unstyled" style="color: #64748b;">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Rawalpindi, Pakistan</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>+92 300 1234567</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i>info@sixsense.com</li>
+                        <li class="mb-2"><i class="fas fa-clock me-2"></i>Mon - Sat: 9AM - 6PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr style="border-color: #e2e8f0; margin: 40px 0 20px;">
+            
+            <div class="text-center">
+                <p style="color: #64748b;">&copy; 2024 Six Sense Technologies. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when link is clicked
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
